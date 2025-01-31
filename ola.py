@@ -1,5 +1,28 @@
 #!/usr/bin/env python3
+"""
+Hello Multi Languages; Ola Multi Linguas
 
-print('Zenio Devops' .upper())
-print(100 - 78)
-# para escrever comentários use #
+Dependendo da lingua configurada no ambiente o programa exibe a mensagem
+correspondente.
+Usage:
+    Make sure the LANG variable is properly configured;;
+    tenha a variável LANG devidamente configurada ex:
+    export LANG=pt_BR
+Execution;; Execução:
+    python3 ola.py ou . ola.py
+"""
+__version__ = "0.0.1"
+__author__ = "Zenio Almeida - zn-dv@outlook.com"
+__license__  = "Unlicense"
+# dunder é __ 2 underlines
+
+import os
+
+current_language = os.getenv("LANG")[:5]
+
+msg = "Hello, i'm Zenio DevOps" 
+if current_language == "pt_BR":
+    msg = "Olá, eu sou o Zenio DevOps"
+ 
+print(msg)
+# to write comments use # para escrever comentários use # 
