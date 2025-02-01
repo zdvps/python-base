@@ -18,11 +18,13 @@ __license__  = "Unlicense"
 
 import os
 
-current_language = os.getenv("LANG")[:5]
+current_language = os.getenv("LANG", "en_US")[:5]
 
 msg = "Hello, i'm Zenio DevOps" 
 if current_language == "pt_BR":
     msg = "Olá, eu sou o Zenio DevOps"
+elif current_language == "es_SP":
+    msg = "Hola, soy Zenio DevOps."
  
 print(msg)
 # to write comments use # para escrever comentários use # 
