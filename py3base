@@ -1,0 +1,234 @@
+py3base
+
+"""------------------------------------------
+"---- Autor: Zenio Almeida 2197700396020
+"------------------------------------------
+"--- comandos do python3 no zsh
+"--- Última atualização: 31/01/25
+
+"""
+
+    Vá para a página do repositório no GitHub.
+    Clique em "Pull requests" e depois em "New pull request".
+    Selecione o branch que você criou e clique em "Create pull request".
+
+
+python3 -c "print(56 -6)"
+python3 -c "print('Zenio')"
+python3 -c "print(56 -6)"
+python3 -c "print('Zenio' .upper())"
+python3 -m site
+ys.path = [
+    '/media/zenio/MySpace/I.A./Linuxtips - Python Base',
+    '/usr/lib/python312.zip',
+    '/usr/lib/python3.12',
+    '/usr/lib/python3.12/lib-dynload',
+    '/usr/local/lib/python3.12/dist-packages',
+    '/usr/lib/python3/dist-packages',
+]
+USER_BASE: '/root/.local' (exists)
+USER_SITE: '/root/.local/lib/python3.12/site-packages' (doesn't exist)
+ENABLE_USER_SITE: True
+#--- o python3 vai buscar os pacotes nestes diretórios
+python3 -m turtledemo
+
+/usr/bin/python3: No module named turtledemo
+vim my_turtle_script.py
+import turtle
+
+my_turtle = turtle.Turtle()
+
+# Draw a square (assuming this part is present)
+for _ in range(4):
+    my_turtle.forward(100)
+    my_turtle.right(90)
+
+turtle.done()
+python3 my_turtle_script.py
+#--- para sair do prompt do python3 basta digitar exit() ou C^d
+>>> help
+Type help() for interactive help, or help(object) for help about object.
+>>> help()
+#-- consulte https://docs.python.org/pt-br/3.12/tutorial/
+#-- parei 36:48
+#---- instalei o micro um editor de código apt-get install micro
+#---- aula 5;; configurando o git e criando um repositório no github, deu uns probleminhas, mas depois resolvo..
+#--- criei uma chave SSH salvei no repositório do python-base, testei tudo certo;; removi o diretório do https e clonei o do SSH.
+#--- desinstalei o zsh,muito ruim, não faz nada tudo travado, deixa quieto
+acabei reinstalando kkkk
+#--- parei no 36mts20 #! no arquivo python3
+which python3  "--- mostra o caminho aonde está ele
+/usr/bin/python3  "--- essa é uma prática recomendavel
+"--- e melhor ainda é criar um ambiente  para rodar scripts python
+rode um env e veja as variáveis de ambiente do seu GNU/Linux, carregando todas
+aquelas variáveis env de environment
+#!/usr/bin/env python3
+git commit -am "acrescentei o shebang" sugeriu git commit -p
+git diff		"--- se fez o commit não vai aparecer nada git diferença
+
+#"""---- aula 6 configurando o programa, editando o cabeçalho, o comentário multiline, que gostei muito, e o Metadados do script ou programa e colocando em inglês, porque é ;;
+alguns códigos vc verá isso  if __name__ ## "__main__": mas está em desuso
+#"""snake case é quando todas as palavras estão em minusculas ou caixa baixa como antigamente falavam;; e tem a Pascal Case CurrentLanguage;;
+esses padrões são usados no Python;;  # dunder é __ 2 underlines
+"""--- a linguagem o built-in o que vem com ela não se comunica com o sistema para ler as variáveis de ambiente, é preciso a biblioteca para isso, import serve para pegar um código externo, quando digito python3
+>>> import os  >>> os <module 'os' (frozen)>
+A parte (frozen) significa que o módulo foi congelado, ou seja, ele foi compilado em um formato que não pode ser modificado em tempo de execução.
+>>> help (os) para saber mais detalhes;;; é muita coisas mano!
+>>> os.getenv("LANG")
+'pt_BR.UTF-8'       """ --- outra maneira de ver a variável LANG
+
+>>> lang = "pt_BR.utf8"
+>>> lang
+'pt_BR.utf8'
+>>> len(lang)	#""" ---- len é o tamanho da variável em caracteres
+10
+>>> lang[:5]  #--- mostre os 5 primeiros caracteres
+'pt_BR'
+>>> lang.split(".")
+['pt_BR', 'utf8']
+>>> lang.split(".")[0]
+'pt_BR'
+>>> lang.split(".")[1]
+'utf8'
+import os
+ 20 
+ 21 current_language = os.getenv("LANG")[:5]  """--- ele vai converter em português
+ o texto em inglês, pois está comandando para a variável LANG sugerida;;
+"""-- Depuração: Execute o script com o modo de depuração do Bash para obter mais informações sobre onde o erro pode estar ocorrendo:
+bash -x ola.py
+
+ """-- mas e se não houver a variável LANG no sistema aonde vc está rodando
+ o python3, tipo um container? Parei 40mts 
+
+ >>> type(os.getenv("LANG"))
+File "<stdin>", line 1
+	type(os.getenv("LANG"))
+"""--- esse comando roda mesmo se não houver LANG no sistema current_language = os.getenv("LANG", "en_US")[:5]
+
+esse é o código base para analisar os fundamentos iniciais
+"""
+ #!/usr/bin/env python3
+  2 """
+  3 Hello Multi Languages; Ola Multi Linguas
+  4
+  5 Dependendo da lingua configurada no ambiente o programa exibe a mensagem
+  6 correspondente.
+  7 Usage:
+  8 	Make sure the LANG variable is properly configured;;
+  9 	tenha a variável LANG devidamente configurada ex:
+ 10 	export LANG=pt_BR
+ 11 Execution;; Execução:
+ 12 	python3 ola.py ou . ola.py
+ 13 """
+ 14 __version__ = "0.0.1"
+ 15 __author__ = "Zenio Almeida - zn-dv@outlook.com"
+ 16 __license__  = "Unlicense"
+ 17 # dunder é __ 2 underlines
+ 18
+ 19 import os
+ 20
+ 21 current_language = os.getenv("LANG", "en_US")[:5]
+ 22
+ 23 msg = "Hello, i'm Zenio DevOps"
+ 24 if current_language == "pt_BR":
+ 25 	msg = "Olá, eu sou o Zenio DevOps"
+ 26 elif current_language == "es_SP":
+ 27 	msg = "Hola, soy Zenio DevOps."                                    	 
+ 28  
+ 29 print(msg)
+ 30 # to write comments use # para escrever comentários use #
+ """
+
+"""--- o git diff tem que ser rodado no diretório aonde está o script
+aula 7;; Expressão/Expression toda instrução que espera um valor como 	retorno;; 1+1 é uma Expression quando há uma resposta 2;;
+Declaração/Statement Instrução que prepara o interpretador para uma determinada tarefa mas não retorna valor.
+if, else   def   for  while  pass
+
+Atribuição/Assignment
+Instrução que pega o retorno de uma expressão e processa o seu valor com intuito de armazenar. "Instrução que captura o retorno de uma expressão e processa seu valor com o objetivo de armazená-lo.Fonte: Copilot"
+
+ soma = 40 + 2  soma += 3  soma -= 3  simbolo de assignment  = +=  -=
+ protocolo é o que o objeto é capaz de fazer
+o interpretador python3 resolve opera da esquerda para direita, primeiro resolve o valor 40 + 2, depois atribui a variable soma;;;
+
+aula 8 Bloco de código, como funcionam? Não usam as chaves como outras linguagens, é muito similar em fazer compras em um supermercado, compramos os produtos por seção, crie listas de compras categorizadas em blocos, seguindo uma lógica, parei 6mts45;;
+
+aula 8 ambientes virtuais e a ferramenta IPython
+dependências e a falta delas causam problemas, incompatibilidade é um problema no ambiente em que vocẽ está, então usar o ambiente virtual é o ideal para desenvolver com menos problemas..
+
+python3 -m site 	""-- lista o ambiente do seu Python3
+which python
+""-- para criar um ambiente virtual temos que criar um diretório, copiar o /usr/bin/python para esse diretório,
+python3 -m venv .venv
+/home/zenio/.venv
+como root rode source .venv/bin/activate, toda vez que tiver que executar o python3 em ambiente virtual tem que rodar esse comando, já fiz um script então para facilitar... depois ainda no ambiente virtual instalar
+python -m pip install --upgrade pip
+python -m pip install ipython
+ipython
+agora a gente roda o ipython, ele tem mais ferramentas e mais dinamico,
+por exemplo ao invés de usr o help use assim
+int?   ou  str?  ou sum? ou conforme a sua necessidade, se colocar somente um ? ele mostra tudo sobre o ipython;;; se vc quiser saber o tempo e consumo de um comando veja isso;;
+ %time print("veja cara")
+veja cara
+CPU times: user 182 μs, sys: 0 ns, total: 182 μs
+Wall time: 247 μs
+digite import dê um TAB e verá todas as bibliotecas que estão instaladas no sistema, import os importamos as bibliotecas do sistema se dermos
+os mais TAB vamos acessar todos os comandos disponíveis no Shell;;
+Use o ipython é bem melhor...tem a versão web que é o famoso jupiter, o qual posso instalar no mesmo ambiente venv do python para ficar isolado e posso usar no browser, muito bom..
+
+Módulo 2 aula 01;;protocolos e tipos de dados sempre caminham juntas;;
+numero = 65 operação de atribuição o 65 é uma expressão e será lançado ao python que fará uma aferência de tipo, o tipo de número inteiro;;
+classe, categoria, tipo são similares;; para o computador só entende binário no caso é 1000001 ;;; outro exemplo
+letra = "A" quando fazemos essa atribuição, o python faz a inferência, dcide como vai guardar isso na memória, e guarda dentro do identificador letra, e transforma ela em número que é o 65 então rode um
+chr(65) 'A' se ambos são o mesmo binário, como o python ou a máquina sabem que estou digitando é número ou letra? 
+
+O tipo de dados responde essa pergunta;; lembre-se da analogia da memória RAM representada como uma grande pasta, que tem muitas pastas, e cada pasta tem um tipo de dado, no caso pasta 1 e um envelope inteiro, e nele um documento com o binário, e a pasta é etiquetada como número;; e o no python rodamos esse comando id(numero) 11794184   é um número aleatório, rode type(numero) type int de inteiro (envelope inteiro) aonde ele guardou o id, então todas as informações que ficam na RAM temos acesso através do Python.. 
+
+******No IPython, os números no lado esquerdo das células de código são chamados de números de prompt de entrada e saída. Eles indicam a ordem em que as células foram executadas.
+In [n]: Este é o prompt de entrada, onde "n" é o número da célula de entrada.
+Out [n]: Este é o prompt de saída, onde "n" corresponde ao número da célula de entrada que gerou essa saída.*******
+
+O que é um objeto? É um endereço de memória, contém um tipo, uma classe, uma categoria, e contém um valor representado, endereço de memória o id;;
+Para cada objeto tem um endereço de memória que pode ser uma letra srt que é uma string, um número int, para nós o importante é o tipo e qual é o valor....
+Todo dado é um byte, toda informação é um tipo, que são classificados como primária e compostos..
+Parei 24mts..dados tipos primários scalar types (representa um unico valor);;
+numero = 65 é um único valor e primário, é type(numero) int o python infere que ele é um número inteiro, haverá casos que teremos que forçar para o python que determinado número é inteiro então usa-se numero =int(65), dir(int) mostra uma lista de todos os métodos e atributos que você pode usar com objetos do tipo int. por exemplo numero.bit_count()
+2 ele mostra que tem 2 bits para armazenar aquele número 65 1000001 dois estão ligados o 1 1, o que tem dunder esses são atributos de protocolo de objetos, vamos usar o __add__ addible ele é um objeto aditivel, significa que a gente consegue fazer numero + 1 o resultado é 66, parei 33mts50
+numero = 65
+numero + 1
+66
+numero.__add__
+<method-wrapper '__add__' of int object at 0xb3f708>
+numero.__add__(1)
+66
+
+idem para numero - 5
+60
+numero.__sub__(5)
+60
+"""--- sempre vamos usar a abstração e nunca o binário
+numero * 12
+len(dir(int))
+74
+numero = 65
+
+In [4]: if numero == 65:
+   ...:     print("É 65")
+   ...:
+É 65
+outra maneira de comparar
+numero.__eq__(65)
+Out[5]: True
+
+In [6]: numero.__eq__(6)
+Out[6]: False
+""-- RESUMO
+tipos de dados
+objeto
+tipos primários e escalares scalar
+int
+protocolos
+
+"""---- Aula 02 tipos float, bool, nonetype
+
+
