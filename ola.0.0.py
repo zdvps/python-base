@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Atualizado:i 25/02/25
 """
 Hello Multi Languages; Ola Multi Linguas
 
@@ -11,7 +12,7 @@ Usage:
 Execution;; Execução:
     python3 ola.py ou . ola.py
 """
-__version__ = "0.0.1"
+__version__ = "0.1.1"
 __author__ = "Zenio Almeida - zn-dv@outlook.com"
 __license__  = "Unlicense"
 # dunder é __ 2 underlines

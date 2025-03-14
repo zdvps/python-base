@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#----------------------
+# "---- Autor: Zenio zndv@outlook.com 21977036020
+#"---- última atualização: 02/02/25
+
+source '/home/zenio/.venv/bin/activate'
+

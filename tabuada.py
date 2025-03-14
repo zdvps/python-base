@@ -22,20 +22,23 @@ __author__ = "Zenio"
 
 template = """
  ----Tabuada do 2----
-        {operacoes}
+{bloco:^18}
 
 ###################
 """
 
-# numeros = [1,2,3,4,5,6,7,8,9,10]
-numeros = list(range(1,11))
-
 # Iterable (percorriveis)
+# numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+numeros = list(range(1, 11))
+# para cada numero em numeros:
+
 for n1 in numeros:
-    operacoes = ""  
+    print("{:-^18}".format(f"Tabuada do {n1}"))
+    print()
     for n2 in numeros:
-      operacao = f"{n1} x {n2} = {n1 * n2}"
-      operacoes = operacoes + operacao
-    print(template.format(operacoes=operacoes))
+     resultado = n1 * n2   
+     print("{:^18}".format(f"{n1} x {n2} = {resultado}"))
+    print("#" * 18)
+
 
 
