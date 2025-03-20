@@ -12,12 +12,27 @@ Usage:
 Execution;; Execução:
     python3 ola.py ou . ola.py
 """
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 __author__ = "Zenio Almeida - zn-dv@outlook.com"
 __license__  = "Unlicense"
 # dunder é __ 2 underlines
 
 import os
+import sys
+
+arguments = {
+        "lang": None,
+        "count": None,
+}
+for arg in sys.argv[1:]:
+    # TODO: Tratar ValueError
+    key, value = arg.split("=")
+    key = key.lstrip("-").strip()
+    value = value.strip()
+    if key not in arguments:
+        print(f"Invalid Option '{key}'")
+        sys.exit()
+    print(key, value)
 
 current_language = os.getenv("LANG", "en_US")[:5]
 
